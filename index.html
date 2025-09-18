@@ -102,6 +102,58 @@
 
     /* Make images (if used) crisp & confined */
     img.icon{ width:42px; height:42px; object-fit:contain; }
+    /* === Compact cards + bigger icons === */
+.project-card{
+  padding:16px 16px;              /* was ~28px */
+  border-radius:14px;              /* a bit tighter */
+}
+.project-card .ti{
+  font-size:56px;                  /* bigger icon */
+  margin-bottom:6px;
+}
+.project-card .title{
+  font-size:1.05rem;
+  margin:2px 0 2px;
+}
+.project-card .meta{
+  font-size:.92rem;
+}
+
+/* Skills / Technical Skills cards */
+.service-card .body{
+  padding:14px 14px !important;    /* override Bootstrap py-4 */
+}
+.service-card .ti,
+.service-card .icon{
+  font-size:44px;                  /* bigger icon */
+  width:auto; height:auto;
+  margin-bottom:6px;
+}
+.service-card .title{
+  font-size:1rem;
+  margin-bottom:4px;
+}
+.service-card .subtitle{
+  font-size:.92rem;
+  margin:0;
+}
+
+/* Reduce column bottoms just for card grids */
+#projects .col-md-6.col-lg-4,
+#service  .col-md-6.col-lg-3,
+#service2 .col-md-6.col-lg-3{
+  margin-bottom:1rem;
+}
+
+/* Slightly less white space between sections */
+.section-title{ margin-bottom:1.25rem; }
+.section .container > .row{ margin-top:.25rem; }
+
+/* Responsive: keep icons large but not oversized on small screens */
+@media (max-width: 575.98px){
+  .project-card .ti{ font-size:48px; }
+  .service-card .ti, .service-card .icon{ font-size:40px; }
+}
   </style>
 </head>
 
