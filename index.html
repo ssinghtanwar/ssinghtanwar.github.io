@@ -1,541 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Portfolio of Saurabh Singh Tanwar" />
-  <meta name="author" content="Saurabh Singh Tanwar" />
   <title>Saurabh Singh Tanwar | Portfolio</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css" />
+  <!-- Icons (Themify) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/themify-icons@1.0.1/css/themify-icons.css">
 
-  <!-- Bootstrap + Meyawo -->
-  <link rel="stylesheet" href="assets/css/meyawo.css" />
+  <!-- Bootstrap 5 (no jQuery needed) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Minimal theme polish (overrides) -->
+  <!-- Page styles -->
   <style>
     :root{
-      --brand:#6b4df3;            /* main purple */
-      --brand-700:#5a3be6;
-      --ink:#171717;
+      --brand:#6b4df3;        /* purple */
+      --brand-2:#8b5cf6;      /* purple 2 */
+      --ink:#111827;
       --muted:#6b7280;
-      --card:#ffffff;
-      --border:#ececf1;
-      --shadow:0 6px 20px rgba(0,0,0,.08);
-      --shadow-lg:0 14px 38px rgba(0,0,0,.14);
+      --bg:#0f1020;
+      --card-bg: rgba(255,255,255,.06);
+      --glass: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.15);
+      --radius: 18px;
     }
-    html,body { scroll-behavior:smooth; }
+
+    /* Base */
+    html,body {scroll-behavior:smooth; background: radial-gradient(1200px 500px at 50% -10%, rgba(107,77,243,.22), transparent 60%), #0b0b14;}
     body{
-      font-family:"Outfit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      color:var(--ink);
+      color:#f6f7fb;
+      font-family:"Outfit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       letter-spacing:.1px;
     }
-    .custom-navbar{
-      background:rgba(255,255,255,.8);
-      backdrop-filter:saturate(160%) blur(8px);
-      border-bottom:1px solid rgba(0,0,0,.04);
-    }
-    .custom-navbar .nav .link{font-weight:500}
-    .btn.btn-primary{
-      background-image:linear-gradient(135deg,var(--brand),#8b5cf6);
-      border:0; box-shadow:var(--shadow);
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    }
-    .btn.btn-primary:hover{ transform:translateY(-1px); box-shadow:var(--shadow-lg); filter:saturate(1.05); }
-    .btn.btn-light{ box-shadow:var(--shadow); }
+    a{ color:#d9d9ff; text-decoration:none; }
+    a:hover{ color:#fff; }
 
-    /* Header polish */
-    .header{
-      background: radial-gradient(1200px 400px at 50% -10%, rgba(107,77,243,.20), transparent 60%), linear-gradient(#f9fafb, #ffffff);
+    /* Navbar */
+    .navbar{
+      --bs-navbar-color:#e7e7ff;
+      backdrop-filter: blur(10px) saturate(150%);
+      background: linear-gradient(180deg, rgba(13,13,24,.7), rgba(13,13,24,.25));
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .header .header-title .up{letter-spacing:1.5px}
-    .header .header-subtitle{ opacity:.85; font-weight:600 }
+    .navbar-brand{ font-weight:800; letter-spacing:.3px }
+    .nav-link{ font-weight:600; margin: 0 .35rem; }
+    .nav-link:hover{ color:#fff !important; }
 
-    /* Section subtitles/titles */
-    .section-subtitle{ color:var(--brand-700); font-weight:700; letter-spacing:.8px; text-transform:uppercase; }
-    .section-title{ font-weight:800; }
+    /* Hero */
+    .hero{
+      padding: 96px 0 56px;
+      background:
+         radial-gradient(1000px 400px at 50% -80px, rgba(139,92,246,.20), transparent 60%),
+         linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      text-align:center;
+    }
+    .hero h1{
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: .35rem;
+    }
+    .hero .sub{
+      font-weight: 700;
+      opacity:.95;
+      color:#e8e5ff;
+      margin-bottom: 1.25rem;
+    }
+    .btn-primary{
+      background-image:linear-gradient(135deg, var(--brand), var(--brand-2));
+      border: none; box-shadow: var(--shadow);
+    }
+    .btn-primary:hover{ filter: saturate(1.06) brightness(1.04); transform: translateY(-1px); }
 
-    /* Project Cards */
-    .project-card{
-      background:var(--card);
-      border:1px solid var(--border);
+    /* Section heads */
+    .section-sub{ color:#c7c3ff; text-transform:uppercase; letter-spacing:1px; font-weight:800; }
+    .section-title{ font-weight:800; margin-bottom: 1.25rem; }
+
+    /* About */
+    .about-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .about-card img{
+      width: 220px; max-width: 100%;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,.25));
+    }
+
+    /* ===== Innovative Project Cards ===== */
+    .projects-grid{ --gap: 18px; gap: var(--gap); }
+    .x-card{
+      position: relative;
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      color:#fff;
+      cursor: pointer;
+      overflow: hidden;
+      transform: translateZ(0);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      min-height: 160px;
+    }
+    /* animated gradient border */
+    .x-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      border-radius: calc(var(--radius) + 2px);
+      padding:2px;
+      background: linear-gradient(120deg, rgba(107,77,243,.0), rgba(107,77,243,.35), rgba(139,92,246,.0));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity:.0; transition:opacity .25s ease;
+    }
+    .x-card:hover::before{ opacity: 1; }
+
+    /* subtle grid shine */
+    .x-card::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(400px 120px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(360px 140px at 90% 110%, rgba(107,77,243,.18), transparent 60%);
+      opacity:.35; pointer-events:none;
+    }
+
+    .x-icon{
+      width:72px; height:72px;
       border-radius:16px;
-      padding:28px 22px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(107,77,243,.22), rgba(139,92,246,.12));
+      border: 1px solid rgba(255,255,255,.14);
+      margin-bottom: 10px;
+    }
+    .x-icon .ti{ font-size: 38px; color:#eae7ff; }
+
+    .x-title{ font-weight:800; font-size: 1.05rem; margin: 4px 0 2px; }
+    .x-meta{ color:#cfcaff; opacity:.9; }
+
+    .x-card:hover{
+      transform: translateY(-6px) rotateX(.8deg) rotateY(.8deg);
+      box-shadow: 0 18px 55px rgba(0,0,0,.25);
+      border-color:rgba(199, 193, 255,.45);
+    }
+
+    /* status ribbon */
+    .ribbon{
+      position:absolute; top:12px; right:-36px;
+      transform: rotate(35deg);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color:#041007; font-weight:800; font-size:.72rem;
+      padding:5px 44px; letter-spacing:.4px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.25);
+    }
+    .ribbon.live{ background: linear-gradient(135deg, #34d399, #10b981); }
+    .ribbon.dev{  background: linear-gradient(135deg, #f59e0b, #f97316); color:#201400; }
+
+    /* Skills */
+    .pill{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 16px 14px;
+      box-shadow: var(--shadow);
       height:100%;
-      box-shadow:var(--shadow);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      cursor:pointer;
-      position:relative;
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .project-card:hover, .project-card:focus{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow-lg);
-      border-color:rgba(107,77,243,.35);
-      outline:none;
+    .pill:hover{ transform: translateY(-4px); box-shadow: 0 16px 42px rgba(0,0,0,.28); }
+    .pill .ti{ font-size: 34px; color:#dcd8ff; }
+    .pill h6{ font-weight:800; margin:.35rem 0 .2rem; }
+    .pill p{ color:#dad6ff; opacity:.9; font-size:.96rem; }
+
+    /* Tech chips */
+    .chip{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:10px 12px; border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      font-weight:700;
     }
-    .project-card .ti{ font-size:38px; color:var(--brand); display:block; margin-bottom:10px; }
-    .project-card .title{ font-weight:700; margin:6px 0 4px; }
-    .project-card .meta{ color:var(--muted); font-size:.95rem; }
+    .chip .ti{ font-size: 20px; color:#e6e2ff; }
 
-    /* Generic service cards (skills) */
-    .service-card{
-      border-radius:16px;
-      border:1px solid var(--border);
-      background:var(--card);
-      box-shadow:var(--shadow);
-      transition:transform .18s ease, box-shadow .18s ease;
+    /* CTA */
+    .cta{
+      background: linear-gradient(135deg, rgba(107,77,243,.26), rgba(139,92,246,.18));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
     }
-    .service-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lg); }
-    .service-card .icon, .service-card .ti{ font-size:36px; color:var(--brand); display:block; margin:2px auto 10px; }
-    .service-card .title{ font-weight:700; }
 
-    /* Footer social */
-    .footer .link{ transition:transform .18s ease, color .18s ease; }
-    .footer .link:hover{ transform:translateY(-2px); color:var(--brand) !important; }
+    /* Footer */
+    footer a{ color:#cfcaff; }
+    footer a:hover{ color:#fff; transform: translateY(-1px); }
 
-    /* Make images (if used) crisp & confined */
-    img.icon{ width:42px; height:42px; object-fit:contain; }
-    /* === Compact cards + bigger icons === */
-.project-card{
-  padding:16px 16px;              /* was ~28px */
-  border-radius:14px;              /* a bit tighter */
-}
-.project-card .ti{
-  font-size:56px;                  /* bigger icon */
-  margin-bottom:6px;
-}
-.project-card .title{
-  font-size:1.05rem;
-  margin:2px 0 2px;
-}
-.project-card .meta{
-  font-size:.92rem;
-}
-
-/* Skills / Technical Skills cards */
-.service-card .body{
-  padding:14px 14px !important;    /* override Bootstrap py-4 */
-}
-.service-card .ti,
-.service-card .icon{
-  font-size:44px;                  /* bigger icon */
-  width:auto; height:auto;
-  margin-bottom:6px;
-}
-.service-card .title{
-  font-size:1rem;
-  margin-bottom:4px;
-}
-.service-card .subtitle{
-  font-size:.92rem;
-  margin:0;
-}
-
-/* Reduce column bottoms just for card grids */
-#projects .col-md-6.col-lg-4,
-#service  .col-md-6.col-lg-3,
-#service2 .col-md-6.col-lg-3{
-  margin-bottom:1rem;
-}
-
-/* Slightly less white space between sections */
-.section-title{ margin-bottom:1.25rem; }
-.section .container > .row{ margin-top:.25rem; }
-
-/* Responsive: keep icons large but not oversized on small screens */
-@media (max-width: 575.98px){
-  .project-card .ti{ font-size:48px; }
-  .service-card .ti, .service-card .icon{ font-size:40px; }
-}
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .x-card, .pill{ transition:none; }
+      .x-card:hover{ transform:none; }
+    }
   </style>
-  <style>
-  /* === FORCE LARGE ICONS (Themify) + tighter cards === */
-  :root { --icon-size: 64px; } /* tweak this number if you want even bigger */
-
-  /* Project cards */
-  .project-card{
-    padding:14px 16px;            /* tighter */
-    border-radius:14px;
-  }
-  /* Themify icons sometimes get sized by theme; override both element & ::before */
-  .project-card .ti,
-  .project-card .ti:before{
-    font-size: var(--icon-size) !important;
-    line-height: 1 !important;
-  }
-
-  /* Skills / Technical Skills cards */
-  .service-card .body{ padding:14px 14px !important; }
-  .service-card .ti,
-  .service-card .ti:before{
-    font-size: calc(var(--icon-size) - 8px) !important; /* ~56px */
-    line-height: 1 !important;
-  }
-
-  /* Contact icons too */
-  #contact .service-card .ti,
-  #contact .service-card .ti:before{
-    font-size: calc(var(--icon-size) - 12px) !important; /* ~52px */
-    line-height: 1 !important;
-  }
-
-  /* If any card still uses an <img class="icon">, force it bigger too */
-  .project-card img.icon,
-  .service-card img.icon{
-    width: var(--icon-size) !important;
-    height: var(--icon-size) !important;
-    object-fit: contain;
-  }
-
-  /* Reduce empty feel between grid cards */
-  #projects .col-md-6.col-lg-4,
-  #service  .col-md-6.col-lg-3,
-  #service2 .col-md-6.col-lg-3{ margin-bottom: .75rem; }
-
-  /* Mobile: keep icons big but not overwhelming */
-  @media (max-width: 575.98px){
-    :root { --icon-size: 56px; }
-  }
-</style>
 </head>
+<body>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-  <!-- Page Navbar -->
-  <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="logo" href="#">Saurabh Singh Tanwar</a>
-      <ul class="nav">
-        <li class="item"><a class="link" href="#home">Home</a></li>
-        <li class="item"><a class="link" href="#about">About</a></li>
-        <li class="item"><a class="link" href="#projects">Projects</a></li>
-        <li class="item"><a class="link" href="#service">Skills</a></li>
-        <li class="item"><a class="link" href="#service2">Technical Skills</a></li>
-        <li class="item"><a class="link" href="#contact">Contact</a></li>
-      </ul>
-      <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic" aria-label="Menu">
-        <div class="hamburger-box"><div class="hamburger-inner"></div></div>
-      </a>
+      <a class="navbar-brand text-white" href="#home">Saurabh Singh Tanwar</a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="ti-menu"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white-50" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#tech">Technical Skills</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
-  <!-- End of Page Navbar -->
 
-  <!-- page header -->
-  <header id="home" class="header">
-    <div class="overlay"></div>
-    <div class="header-content container">
-      <h1 class="header-title">
-        <span class="up">HI!</span>
-        <span class="down">I am Saurabh<br/>S Tanwar</span>
-      </h1>
-      <p class="header-subtitle">Developer</p>
-      <a href="https://github.com/ssinghtanwar" target="_blank" rel="noopener">
-        <button class="btn btn-primary">Visit My Works</button>
-      </a>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Hi!<br/>I am Saurabh<br/>S Tanwar</h1>
+      <div class="sub">Developer</div>
+      <a href="https://github.com/ssinghtanwar" target="_blank" rel="noopener" class="btn btn-primary btn-lg px-4">Visit My Works</a>
     </div>
-  </header>
-  <!-- end of page header -->
+  </section>
 
-  <!-- about section -->
-  <section class="section pt-0" id="about">
-    <div class="container text-center">
-      <div class="about">
-        <div class="about-img-holder">
-          <img src="assets/imgs/man.png" class="about-img" alt="Saurabh portrait" />
+  <!-- ABOUT -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-4 about-card p-4 p-md-5">
+        <div class="col-md-4 text-center">
+          <img src="assets/imgs/man.png" alt="Saurabh portrait">
         </div>
-        <div class="about-caption">
-          <p class="section-subtitle">Who Am I ?</p>
-          <h2 class="section-title mb-3">About Me</h2>
-          <p>
+        <div class="col-md-8">
+          <div class="section-sub mb-1">Who am I?</div>
+          <h2 class="section-title">About Me</h2>
+          <p class="text-white-50 mb-3">
             Hi! I’m Saurabh Singh Tanwar, an MSc Computer Science graduate from BHU and a developer at Big Bang Codes.
-            I design and ship full-stack apps across Flutter (iOS/Android) and React/Next.js for the web, with pragmatic
-            backends in Python (FastAPI/Django) and Node.js. I love building fast, production-ready products and solving
-            hard problems end-to-end.
+            I ship full-stack products across Flutter (iOS/Android) and React/Next.js, with pragmatic backends in
+            Python (FastAPI/Django) and Node.js. I care about performance, UX polish, and building things end-to-end.
           </p>
-          <a href="#" target="_blank" rel="noopener">
-            <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
-          </a>
+          <a href="#" class="btn btn-outline-light btn-lg">Download CV</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- end of about section -->
 
-  <!-- =========================
-       PROJECTS (clickable cards → modals)
-  ========================== -->
-  <section class="section" id="projects">
-    <div class="container text-center">
-      <p class="section-subtitle">What I Built ?</p>
-      <h6 class="section-title mb-6">Projects</h6>
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <div class="section-sub">What I built?</div>
+      <h3 class="section-title">Projects</h3>
 
-      <div class="row">
-        <!-- Ssure App -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card" data-toggle="modal" data-target="#projectSsure" role="button" tabindex="0" aria-controls="projectSsure">
-            <i class="ti-android" aria-hidden="true"></i>
-            <h6 class="title">Ssure (Android)</h6>
-            <div class="meta">Live on Google Play</div>
-          </div>
+      <div class="row row-cols-1 row-cols-md-3 projects-grid">
+        <!-- Ssure -->
+        <div class="col">
+          <article class="x-card" data-bs-toggle="modal" data-bs-target="#modalSsure" role="button" tabindex="0" aria-controls="modalSsure">
+            <span class="ribbon live">LIVE</span>
+            <div class="x-icon"><i class="ti-android"></i></div>
+            <div class="x-title">Ssure (Android)</div>
+            <div class="x-meta">Production Android app on Google Play</div>
+          </article>
         </div>
 
         <!-- Blalo App -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card" data-toggle="modal" data-target="#projectBlaloApp" role="button" tabindex="0" aria-controls="projectBlaloApp">
-            <i class="ti-mobile" aria-hidden="true"></i>
-            <h6 class="title">Blalo — Mobile App</h6>
-            <div class="meta">In Development</div>
-          </div>
+        <div class="col">
+          <article class="x-card" data-bs-toggle="modal" data-bs-target="#modalBlaloApp" role="button" tabindex="0" aria-controls="modalBlaloApp">
+            <span class="ribbon dev">IN&nbsp;DEV</span>
+            <div class="x-icon"><i class="ti-mobile"></i></div>
+            <div class="x-title">Blalo — Mobile App</div>
+            <div class="x-meta">High-trust freelancing marketplace</div>
+          </article>
         </div>
 
-        <!-- Blalo.in Website -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card" data-toggle="modal" data-target="#projectBlaloWeb" role="button" tabindex="0" aria-controls="projectBlaloWeb">
-            <i class="ti-world" aria-hidden="true"></i>
-            <h6 class="title">Blalo.in — Website</h6>
-            <div class="meta">Live</div>
-          </div>
+        <!-- Blalo Web -->
+        <div class="col">
+          <article class="x-card" data-bs-toggle="modal" data-bs-target="#modalBlaloWeb" role="button" tabindex="0" aria-controls="modalBlaloWeb">
+            <span class="ribbon live">LIVE</span>
+            <div class="x-icon"><i class="ti-world"></i></div>
+            <div class="x-title">Blalo.in — Website</div>
+            <div class="x-meta">Modern, responsive web platform</div>
+          </article>
         </div>
       </div>
     </div>
 
-    <!-- Modals (unchanged content, just keeping them) -->
-    <!-- Ssure Modal -->
-    <div class="modal fade" id="projectSsure" tabindex="-1" role="dialog" aria-labelledby="projectSsureTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="projectSsureTitle">Ssure — Android App (Live)</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <!-- Modals -->
+    <div class="modal fade" id="modalSsure" tabindex="-1" aria-labelledby="modalSsureLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-0" style="background:linear-gradient(180deg, rgba(14,14,25,.96), rgba(14,14,25,.92));">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="modalSsureLabel">Ssure — Android App (Live)</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body text-left">
+          <div class="modal-body">
             <p><strong>Status:</strong> Live on Google Play</p>
             <p><strong>Role:</strong> Mobile Developer</p>
-            <p><strong>Highlights:</strong></p>
-            <ul>
-              <li>Production Android app with clean UX and reliable performance.</li>
-              <li>Modern Android toolchain; crash-safe navigation and state handling.</li>
+            <p class="mb-2"><strong>Highlights:</strong></p>
+            <ul class="text-white-50">
+              <li>Clean UX, reliable performance, modern Android toolchain.</li>
+              <li>Crash-safe navigation & state handling.</li>
             </ul>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer border-0">
             <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.ssure" target="_blank" rel="noopener">Open on Google Play</a>
-            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Blalo App Modal -->
-    <div class="modal fade" id="projectBlaloApp" tabindex="-1" role="dialog" aria-labelledby="projectBlaloAppTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="projectBlaloAppTitle">Blalo — Mobile App (In Development)</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="modal fade" id="modalBlaloApp" tabindex="-1" aria-labelledby="modalBlaloAppLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-0" style="background:linear-gradient(180deg, rgba(14,14,25,.96), rgba(14,14,25,.92));">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="modalBlaloAppLabel">Blalo — Mobile App (In Development)</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body text-left">
+          <div class="modal-body">
             <p><strong>Goal:</strong> High-trust freelancing marketplace app.</p>
-            <p><strong>Key features:</strong></p>
-            <ul>
+            <p class="mb-2"><strong>Key features:</strong></p>
+            <ul class="text-white-50">
               <li>Freelancer profiles & portfolio showcase.</li>
-              <li>Client–freelancer messaging and booking workflows.</li>
+              <li>Client–freelancer messaging and bookings.</li>
               <li>UPI/PhonePe payment readiness (roadmap).</li>
               <li>Privacy-first defaults; offline-friendly reads.</li>
             </ul>
             <p><strong>Stack:</strong> Flutter · Firebase (Auth/Firestore/Hosting)</p>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Blalo.in Web Modal -->
-    <div class="modal fade" id="projectBlaloWeb" tabindex="-1" role="dialog" aria-labelledby="projectBlaloWebTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="projectBlaloWebTitle">Blalo.in — Live Website</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="modal fade" id="modalBlaloWeb" tabindex="-1" aria-labelledby="modalBlaloWebLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-0" style="background:linear-gradient(180deg, rgba(14,14,25,.96), rgba(14,14,25,.92));">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="modalBlaloWebLabel">Blalo.in — Live Website</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body text-left">
+          <div class="modal-body">
             <p><strong>Tagline:</strong> Connecting clients in need to professionals who deliver.</p>
             <p><strong>Why choose us:</strong> For freelancers — 0% commission. For clients — end-to-end solution.</p>
-            <p><strong>Highlights:</strong></p>
-            <ul>
+            <p class="mb-2"><strong>Highlights:</strong></p>
+            <ul class="text-white-50">
               <li>Fast category browsing & profile pages with responsive UI.</li>
               <li>Built for speed, reliability, and low-friction onboarding.</li>
             </ul>
             <p><strong>Stack:</strong> Next.js · Firebase · Cloudflare R2 (media/CDN)</p>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer border-0">
             <a class="btn btn-primary" href="https://blalo.in" target="_blank" rel="noopener">Visit Blalo.in</a>
-            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- /PROJECTS -->
 
-  <!-- Skills -->
-  <section class="section" id="service">
-    <div class="container text-center">
-      <p class="section-subtitle">What I Do ?</p>
-      <h6 class="section-title mb-6">Skills</h6>
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="service-card">
-            <div class="body py-4">
-              <i class="ti-mobile"></i>
-              <h6 class="title">Full-Stack Apps</h6>
-              <p class="subtitle">Flutter (iOS/Android), React & Next.js (SSR/ISR) — end-to-end delivery.</p>
-            </div>
+  <!-- SKILLS -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <div class="section-sub">What I do?</div>
+      <h3 class="section-title">Skills</h3>
+
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="pill h-100 text-center p-3">
+            <div class="ti ti-mobile"></div>
+            <h6>Full-Stack Apps</h6>
+            <p class="mb-0">Flutter (iOS/Android), React & Next.js (SSR/ISR) — end-to-end delivery.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="service-card">
-            <div class="body py-4">
-              <i class="ti-server"></i>
-              <h6 class="title">APIs & Backends</h6>
-              <p class="subtitle">Python (FastAPI/Django) & Node.js (Express/Nest); Auth, payments, REST/GraphQL.</p>
-            </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="pill h-100 text-center p-3">
+            <div class="ti ti-server"></div>
+            <h6>APIs & Backends</h6>
+            <p class="mb-0">Python (FastAPI/Django) & Node.js (Express/Nest). Auth, payments, REST/GraphQL.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="service-card">
-            <div class="body py-4">
-              <i class="ti-cloud"></i>
-              <h6 class="title">Data & Cloud</h6>
-              <p class="subtitle">Firebase (Auth/Firestore/Storage/Hosting), PostgreSQL/MySQL/SQLite, Cloudflare R2, Vercel.</p>
-            </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="pill h-100 text-center p-3">
+            <div class="ti ti-cloud"></div>
+            <h6>Data & Cloud</h6>
+            <p class="mb-0">Firebase, PostgreSQL/MySQL/SQLite, Cloudflare R2, Vercel/CF Pages.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="service-card">
-            <div class="body py-4">
-              <i class="ti-settings"></i>
-              <h6 class="title">DevOps & Quality</h6>
-              <p class="subtitle">CI/CD (GitHub Actions), testing (Jest/Pytest), profiling & perf budgets.</p>
-            </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="pill h-100 text-center p-3">
+            <div class="ti ti-settings"></div>
+            <h6>DevOps & Quality</h6>
+            <p class="mb-0">CI/CD (GitHub Actions), testing (Jest/Pytest), performance budgets.</p>
           </div>
         </div>
-      </div><!-- row -->
+      </div>
     </div>
   </section>
 
-  <!-- Technical Skills -->
-  <section class="section" id="service2">
-    <div class="container text-center">
-      <p class="section-subtitle">What I Know ?</p>
-      <h6 class="section-title mb-6">Technical Skills</h6>
-      <div class="row">
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-mobile"></i><h6 class="title">Flutter (Dart)</h6></div></div></div>
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-layout"></i><h6 class="title">React & Next.js</h6></div></div></div>
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-control-shuffle"></i><h6 class="title">Python · FastAPI/Django</h6></div></div></div>
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-cloud"></i><h6 class="title">Firebase (Auth/DB/Hosting)</h6></div></div></div>
+  <!-- TECHNICAL SKILLS -->
+  <section id="tech" class="py-5">
+    <div class="container">
+      <div class="section-sub">What I know?</div>
+      <h3 class="section-title">Technical Skills</h3>
 
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-server"></i><h6 class="title">Node.js · Express/Nest</h6></div></div></div>
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-server"></i><h6 class="title">PostgreSQL/MySQL/SQLite</h6></div></div></div>
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-github"></i><h6 class="title">Git & GitHub Actions</h6></div></div></div>
-        <div class="col-md-6 col-lg-3"><div class="service-card"><div class="body py-4"><i class="ti-paint-bucket"></i><h6 class="title">HTML/CSS/Tailwind</h6></div></div></div>
+      <div class="row g-3">
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-mobile"></i>Flutter (Dart)</div></div>
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-layout"></i>React & Next.js</div></div>
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-control-shuffle"></i>Python · FastAPI/Django</div></div>
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-cloud"></i>Firebase (Auth/DB/Hosting)</div></div>
+
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-server"></i>Node.js · Express/Nest</div></div>
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-server"></i>PostgreSQL/MySQL/SQLite</div></div>
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-github"></i>Git & GitHub Actions</div></div>
+        <div class="col-6 col-md-3"><div class="chip w-100 justify-content-center"><i class="ti-paint-bucket"></i>HTML/CSS/Tailwind</div></div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section-sm bg-primary">
-    <div class="container text-center text-sm-left">
-      <div class="row align-items-center">
-        <div class="col-sm offset-md-1 mb-4 mb-md-0">
-          <h6 class="title text-light">Want to work with me?</h6>
-          <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
+  <section class="py-5">
+    <div class="container">
+      <div class="cta p-4 p-md-5 d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div>
+          <h4 class="fw-bold mb-1">Want to work with me?</h4>
+          <div class="text-white-50">Always feel free to contact & hire me.</div>
         </div>
-        <div class="col-sm offset-sm-2 offset-md-3">
-          <a href="#contact" class="btn btn-lg my-font btn-light rounded">Hire Me</a>
+        <a href="#contact" class="btn btn-light btn-lg mt-3 mt-md-0">Hire Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="section-sub">How can you communicate?</div>
+      <h3 class="section-title">Contact Me</h3>
+
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <div class="pill h-100 text-center p-4">
+            <div class="ti ti-email"></div>
+            <h6>Email</h6>
+            <p class="mb-0"><a href="mailto:saurabhstanwar@gmail.com">saurabhstanwar@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="pill h-100 text-center p-4">
+            <div class="ti ti-mobile"></div>
+            <h6>Phone</h6>
+            <p class="mb-0"><a href="tel:+918700631634">+91&nbsp;87006&nbsp;31634</a></p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="pill h-100 text-center p-4">
+            <div class="ti ti-github"></div>
+            <h6>GitHub</h6>
+            <p class="mb-0"><a href="https://github.com/ssinghtanwar" target="_blank" rel="noopener">github.com/ssinghtanwar</a></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="container text-center">
-      <p class="section-subtitle">How can you communicate?</p>
-      <h6 class="section-title mb-5">Contact Me</h6>
-
-      <div class="row justify-content-center">
-        <!-- Email Card -->
-        <div class="col-md-4 col-lg-3 mb-4">
-          <div class="service-card h-100">
-            <div class="body py-4">
-              <i class="ti-email"></i>
-              <h6 class="title">Email</h6>
-              <p class="subtitle mb-0"><a href="mailto:saurabhstanwar@gmail.com">saurabhstanwar@gmail.com</a></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Phone Card -->
-        <div class="col-md-4 col-lg-3 mb-4">
-          <div class="service-card h-100">
-            <div class="body py-4">
-              <i class="ti-mobile"></i>
-              <h6 class="title">Phone</h6>
-              <p class="subtitle mb-0"><a href="tel:+918700631634">+91&nbsp;87006&nbsp;31634</a></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- GitHub Card -->
-        <div class="col-md-4 col-lg-3 mb-4">
-          <div class="service-card h-100">
-            <div class="body py-4">
-              <i class="ti-github"></i>
-              <h6 class="title">GitHub</h6>
-              <p class="subtitle mb-0"><a href="https://github.com/ssinghtanwar" target="_blank" rel="noopener">github.com/ssinghtanwar</a></p>
-            </div>
-          </div>
-        </div>
-      </div><!-- row -->
+  <!-- FOOTER -->
+  <footer class="py-4">
+    <div class="container d-flex justify-content-center gap-3">
+      <a href="https://github.com/ssinghtanwar" target="_blank" class="me-2"><i class="ti-github"></i></a>
+      <a href="https://twitter.com/saurabh_singh_t" target="_blank" class="me-2"><i class="ti-twitter-alt"></i></a>
+      <a href="https://www.instagram.com/saurabh_s_tanwar" target="_blank"><i class="ti-instagram"></i></a>
     </div>
-  </section>
+  </footer>
 
-  <!-- footer -->
-  <div class="container">
-    <footer class="footer">
-      <div class="social-links text-right m-auto ml-sm-auto">
-        <a href="https://github.com/ssinghtanwar" target="_blank" rel="noopener" class="link"><i class="ti-github"></i></a>
-        <a href="https://twitter.com/saurabh_singh_t" target="_blank" rel="noopener" class="link"><i class="ti-twitter-alt"></i></a>
-        <a href="https://www.instagram.com/saurabh_s_tanwar" target="_blank" rel="noopener" class="link"><i class="ti-instagram"></i></a>
-      </div>
-    </footer>
-  </div>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- core -->
-  <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-  <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-  <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-  <script src="assets/js/meyawo.js"></script>
-
-  <!-- tiny UX helpers: allow Enter/Space to open cards -->
+  <!-- Keyboard support for card open + gentle tilt on hover -->
   <script>
-    document.querySelectorAll('.project-card').forEach(card=>{
-      card.addEventListener('keydown', (e)=>{
+    // keyboard open
+    document.querySelectorAll('.x-card').forEach(card=>{
+      card.addEventListener('keydown', e=>{
         if(e.key === 'Enter' || e.key === ' '){
           e.preventDefault();
           card.click();
         }
       });
     });
+
+    // hover tilt (reduced motion aware)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){
+      document.querySelectorAll('.x-card').forEach(card=>{
+        card.addEventListener('mousemove', e=>{
+          const r = card.getBoundingClientRect();
+          const x = e.clientX - r.left, y = e.clientY - r.top;
+          const rx = ((y / r.height) - .5) * -6;  // tilt X
+          const ry = ((x / r.width)  - .5) *  6;  // tilt Y
+          card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+        card.addEventListener('mouseleave', ()=>{
+          card.style.transform = '';
+        });
+      });
+    }
   </script>
 </body>
 </html>
