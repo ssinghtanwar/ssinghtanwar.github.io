@@ -155,6 +155,55 @@
   .service-card .ti, .service-card .icon{ font-size:40px; }
 }
   </style>
+  <style>
+  /* === FORCE LARGE ICONS (Themify) + tighter cards === */
+  :root { --icon-size: 64px; } /* tweak this number if you want even bigger */
+
+  /* Project cards */
+  .project-card{
+    padding:14px 16px;            /* tighter */
+    border-radius:14px;
+  }
+  /* Themify icons sometimes get sized by theme; override both element & ::before */
+  .project-card .ti,
+  .project-card .ti:before{
+    font-size: var(--icon-size) !important;
+    line-height: 1 !important;
+  }
+
+  /* Skills / Technical Skills cards */
+  .service-card .body{ padding:14px 14px !important; }
+  .service-card .ti,
+  .service-card .ti:before{
+    font-size: calc(var(--icon-size) - 8px) !important; /* ~56px */
+    line-height: 1 !important;
+  }
+
+  /* Contact icons too */
+  #contact .service-card .ti,
+  #contact .service-card .ti:before{
+    font-size: calc(var(--icon-size) - 12px) !important; /* ~52px */
+    line-height: 1 !important;
+  }
+
+  /* If any card still uses an <img class="icon">, force it bigger too */
+  .project-card img.icon,
+  .service-card img.icon{
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
+    object-fit: contain;
+  }
+
+  /* Reduce empty feel between grid cards */
+  #projects .col-md-6.col-lg-4,
+  #service  .col-md-6.col-lg-3,
+  #service2 .col-md-6.col-lg-3{ margin-bottom: .75rem; }
+
+  /* Mobile: keep icons big but not overwhelming */
+  @media (max-width: 575.98px){
+    :root { --icon-size: 56px; }
+  }
+</style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
